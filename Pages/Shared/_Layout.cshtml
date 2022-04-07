@@ -6,38 +6,62 @@
     <title>@ViewData["Title"] - MonPortefolio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">MonPortefolio</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" href="#home">Qui suis-je? <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link" href="#adventure">Présentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#explore">Parcour profesionnel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blog">Mes réalisations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container-fluid" p-0>
+        <main role="main" class=" ">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer>
         <div class="container">
-            &copy; 2022 - MonPortefolio - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="sci">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li> <!-- use fontawesome icon -->
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li> <!-- use fontawesome icon -->
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li> <!-- use fontawesome icon -->
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li><!-- use fontawesome icon -->
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li> <!-- use fontawesome icon -->
+                    </ul>
+                    <p class="cpryt">Copyright 2020 lorem</p>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -45,6 +69,17 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script type="text/javascript">
+        $(document).scroll(function () {
+            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+        });
+        
+
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
